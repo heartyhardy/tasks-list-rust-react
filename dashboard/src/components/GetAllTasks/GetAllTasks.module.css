@@ -1,0 +1,10 @@
+.parent{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    grid-auto-rows: minmax(100px, auto);
+    
+    padding: 10px;
+    background: linear-gradient(0deg, rgba(206,228,255,1) 0%, rgba(202,190,255,1) 40%, rgba(217,201,255,1) 100%);
+    box-shadow: 2px 2px 15px 1px rgba(32, 45, 104, 0.548);
+}

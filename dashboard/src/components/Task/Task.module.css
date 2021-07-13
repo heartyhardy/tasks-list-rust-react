@@ -1,0 +1,41 @@
+.parent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: darkslateblue;
+    box-shadow: 2px 2px 5px 1px rgba(32, 45, 104, 0.322);
+    border-radius: .5rem;
+    padding: 5px;
+    margin: 5px;
+}
+
+.taskname{
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    min-width: 75%;
+    color: lightcoral;
+}
+
+.task_status{
+    background-color: rebeccapurple;
+    font-family: 'Quicksand', sans-serif;
+    font-size: medium;
+    font-weight: bold;
+    text-align: center;
+    min-width: 30%;
+    margin-bottom: .75rem;
+    padding: 2px 20px;
+    border-radius: 10px;
+}
+
+.completed{
+    color:limegreen;
+    border: 2px rgba(0, 255, 0, 0.432) solid;
+}
+
+.pending{
+    color:orangered;
+    border: 2px rgba(255, 127, 80, 0.548) solid;
+}
