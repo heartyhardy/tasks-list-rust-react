@@ -29,7 +29,7 @@ const GetAllTasks = (props) => {
                 !appState.loading ? (
                     <React.Fragment>
                         {
-                            appState.response.tasks.map((el,i) => {
+                            appState.response.map((el,i) => {
                                 return <Task
                                  key={i} 
                                  taskName={el.name} 

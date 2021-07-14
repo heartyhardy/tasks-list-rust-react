@@ -16,9 +16,10 @@ pub async fn index() -> impl Responder{
 
 //GET /tasks
 #[get("")]
-pub async fn all_tasks() -> impl Responder{
+pub async fn all_tasks(state: web::Data<PlaceholderData>) -> impl Responder{
+    let tasks = &state.tasks.lock().unwrap();
     HttpResponse::Ok()
-        .json(PlaceholderData::new())
+        .json(tasks.to_vec())
 }
 
 //GET /tasks/{id}
