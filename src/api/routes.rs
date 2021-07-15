@@ -24,23 +24,29 @@ pub async fn all_tasks(state: web::Data<PlaceholderData>) -> impl Responder{
 
 //GET /tasks/{id}
 #[get("/{id}")]
-pub async fn get_task(task_id: web::Path<u16>) -> impl Responder{
+pub async fn get_task(state: web::Data<PlaceholderData>, task_id: web::Path<u16>) -> impl Responder{
+    let tasks = &state;
+
     HttpResponse::Ok()
-        .body(format!("Path param: {}", task_id))
+        .json(PlaceholderData::by_id(&tasks, task_id.to_owned()))
 }
 
 //GET /tasks/completed
 #[get("/completed")]
-pub async fn get_completed() -> impl Responder{
+pub async fn get_completed(state:web::Data<PlaceholderData>) -> impl Responder{
+    let tasks = &state;
+    
     HttpResponse::Ok()
-        .json(PlaceholderData::new().by_status(true))
+        .json(tasks.by_status(true))
 }
 
 //GET /tasks/pending
 #[get("/pending")]
-pub async fn get_pending() -> impl Responder{
+pub async fn get_pending(state:web::Data<PlaceholderData>) -> impl Responder{
+    let tasks = &state;
+    
     HttpResponse::Ok()
-        .json(PlaceholderData::new().by_status(false))
+        .json(tasks.by_status(false))
 }
 
 //POST /tasks

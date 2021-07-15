@@ -9,21 +9,27 @@ pub struct PlaceholderData{
     pub tasks:Mutex<Vec<Task>>,
 }
 
+//Associated functions
 impl PlaceholderData{
     
     pub fn new() -> PlaceholderData{
         PlaceholderData{
             tasks: Mutex::new(vec![
-                Task{name:String::from("Workout"),completed:true},
-                Task{name:String::from("Code"),completed:false},
-                Task{name:String::from("Learn"),completed:false},
-                Task{name:String::from("Hike"),completed:true},
-                Task{name:String::from("Repeat"),completed:false},                
+                    Task::new(String::from("Workout"), true),
+                    Task::new(String::from("Code"), false),
+                    Task::new(String::from("Learn"),false),
+                    Task::new(String::from("Hike"),true),
+                    Task::new(String::from("Repeat"),false),                
                 ],
             )
         }
     }
 
+}
+
+
+//Methods
+impl PlaceholderData{
 
     pub fn by_status(&self, completed:bool) -> Vec<Task>{
         let result = self.tasks.lock().unwrap()
@@ -33,5 +39,15 @@ impl PlaceholderData{
             .collect();
         
         result
+    }
+
+    pub fn by_id(&self, id:u16) -> Option<Task>{
+        let tasks =  self.tasks.lock().unwrap()
+            .iter()
+            .filter(|e| e.get_id() == id)
+            .cloned()
+            .collect::<Vec<Task>>();
+
+        if tasks.len() > 0 {Some(tasks[0].clone())} else{None}
     }
 }
