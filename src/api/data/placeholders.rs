@@ -50,4 +50,51 @@ impl PlaceholderData{
 
         if tasks.len() > 0 {Some(tasks[0].clone())} else{None}
     }
+
+    pub fn new_task(&self, name: String, completed:bool) -> Vec<Task>{
+        let new_task = Task::new(name, completed);
+
+        let mut tasks = self.tasks.lock().unwrap();
+        tasks.push(new_task.clone());
+
+        vec![new_task]
+    }
+
+    pub fn patch_task(&self,id: u16, name:Option<String>, completed:Option<bool>) -> bool{
+
+        let mut tasks = self.tasks.lock().unwrap();
+        
+        if let Some(pos) = tasks
+         .iter()
+         .position(|e| e.get_id() == id){
+             if let Some(new_name) = name{
+                 tasks[pos].name = new_name;
+             }
+             if let Some(new_status) = completed{
+                 tasks[pos].completed = new_status;
+             }
+
+             return true;
+         }
+        else{
+            return false;
+        }
+    }
+
+    pub fn delete_task(&self, id:u16) -> bool{
+        
+        let mut tasks = self.tasks.lock().unwrap();
+
+        if let Some(pos) = tasks
+        .iter()
+        .position(|e| e.get_id() == id){
+            tasks.remove(pos);
+
+            return true;
+        }
+       else{
+           return false;
+       }
+   }
+    
 }
