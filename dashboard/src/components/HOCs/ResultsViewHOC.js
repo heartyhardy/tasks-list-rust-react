@@ -21,7 +21,7 @@ const ResultsViewHOC = (contents) => {
 
             const response = await axios.get(tasks_api)
             const data = await response.data
-            console.log(data)
+            
             setApiResponse({isLoading:false, response: data})
         }
         getData()
