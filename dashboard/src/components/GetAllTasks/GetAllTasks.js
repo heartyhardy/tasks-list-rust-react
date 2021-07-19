@@ -27,7 +27,7 @@ const GetAllTasks = (props) => {
         <div className={styles.parent}>
             {
                 !appState.loading ? (
-                    <React.Fragment>
+                    <>
                         {
                             appState.response.map((el,i) => {
                                 return <Task
@@ -36,7 +36,7 @@ const GetAllTasks = (props) => {
                                  taskStatus={el.completed} />
                             })
                         }
-                    </React.Fragment>
+                    </>
                 ):(<p>Loading...</p>)
             }
         </div>
