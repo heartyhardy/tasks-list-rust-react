@@ -1,10 +1,48 @@
-import React from 'react'
+import React, { useState } from 'react'
+import axios from 'axios'
+import TasksHOC from '../HOCs/TasksHOC'
+import NewTaskForm from '../NewTaskForm/NewTaskForm'
+
 
 const PostTask = (props) => {
+
+    const tasks_api = `http://127.0.0.1:8080/tasks`
+
+    const [newTaskName, setTaskName] = useState("")
+    
+    const onTextChange = (value) => {
+        
+        if(value === ""){
+            return
+        }
+        
+        if(!value.match(/^[A-Za-z]+$/)){
+            setTaskName("")
+            return
+        }
+
+        setTaskName(value)
+    }
+
+    const onPost = () => {
+        async function postData(){
+
+            if(newTaskName === ""){
+                return
+            }
+
+            let contents = {name: newTaskName, completed: false}
+
+            let response = await axios.post(tasks_api, contents)
+            let data = await response.data            
+        }
+        postData()
+    }
+
     return(
-        <div>
-            <h3>Post a Task...</h3>
-        </div>
+        <TasksHOC>
+            <NewTaskForm onTextChange={onTextChange} onPost={onPost}/>
+        </TasksHOC>
     )
 }
 
