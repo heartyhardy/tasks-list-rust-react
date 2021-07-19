@@ -1,10 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
+import ResultsViewHOC from '../HOCs/ResultsViewHOC'
+import TasksHOC from '../HOCs/TasksHOC'
+import SearchBar from '../SearchBar/SearchBar'
 
-const GetTask = (props) => {
+
+const GetTask = ({tasks}) => {
+
+    const [srcID, setSrcID] = useState(0)
+
+    const onSpinnerChange = (value) => {
+        setSrcID(value)
+    }
+
     return(
-        <div>
-            <h3>Get Task by ID...</h3>            
-        </div>
+        <TasksHOC>
+            <SearchBar onSpinnerChange={onSpinnerChange} />
+            <ResultsViewHOC tasks={tasks} srcID={srcID}>
+            </ResultsViewHOC>
+        </TasksHOC>
     )
 }
 
