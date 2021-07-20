@@ -17,7 +17,7 @@ const ResultsViewHOC = (contents) => {
                 return
             }
 
-            const tasks_api = `http://127.0.0.1:8080/tasks/${contents.srcID}`
+            const tasks_api = `http://127.0.0.1:8080/tasks/${Math.abs(contents.srcID)}`
 
             const response = await axios.get(tasks_api)
             const data = await response.data

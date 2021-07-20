@@ -7,7 +7,7 @@
     background-color: darkslateblue;
     box-shadow: 2px 2px 5px 1px rgba(32, 45, 104, 0.322);
     border-radius: .5rem;
-    padding: 15px;
+    padding: 3rem;
     margin:  2rem;
 }
 
@@ -21,7 +21,8 @@
     box-shadow: 2px 2px 5px 1px rgba(32, 45, 104, 0.322);
     border-radius: .5rem;
     padding: 1rem;
-    margin:  2rem;
+    margin:  1rem;
+    padding-bottom: 2rem;
 }
 
 .textfield{
@@ -38,7 +39,7 @@
     width: 50vw;
 }
 
-.button{
+.checkbox{
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 1rem;
     text-align: center;
@@ -49,6 +50,31 @@
     color: midnightblue;
     border-radius: .5rem;
     padding: .5rem;
+    margin-top: .5rem;
+    margin-left: .5rem;
+    cursor: pointer;
+
+    -webkit-transform: scale(3);
+    -moz-transform: scale(3);
+    transform: scale(3);
+}
+
+.checkbox:hover{
+    color: lightgoldenrodyellow;
+    background-color: coral;
+}
+
+.button{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1rem;
+    text-align: center;
+    border: none;
+    outline: none;
+    box-shadow: .1rem .1rem .5rem 2px rgba(72, 16, 136, 0.63);
+    background-color: lightsalmon;
+    color: midnightblue;
+    border-radius: .5rem;
+    padding: .5rem 2.5rem .5rem 2.5rem;
     margin-left: .5rem;
     cursor: pointer;
 }

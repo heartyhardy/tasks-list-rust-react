@@ -16,7 +16,7 @@ const PostTask = (props) => {
             return
         }
         
-        if(!value.match(/^[A-Za-z]+$/)){
+        if(!value.match(/^[ A-Za-z]+$/)){
             setTaskName("")
             return
         }
@@ -34,7 +34,9 @@ const PostTask = (props) => {
             let contents = {name: newTaskName, completed: false}
 
             let response = await axios.post(tasks_api, contents)
-            let data = await response.data            
+            let data = await response.data
+            
+            // Require Error Handling (Check data)
         }
         postData()
     }
