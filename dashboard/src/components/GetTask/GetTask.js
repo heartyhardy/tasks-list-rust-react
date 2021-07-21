@@ -15,7 +15,7 @@ const GetTask = ({tasks}) => {
     return(
         <TasksHOC>
             <SearchBar onSpinnerChange={onSpinnerChange} />
-            <ResultsViewHOC tasks={tasks} srcID={srcID}>
+            <ResultsViewHOC srcID={srcID}>
             </ResultsViewHOC>
         </TasksHOC>
     )

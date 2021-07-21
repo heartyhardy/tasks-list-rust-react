@@ -1,11 +1,11 @@
 import React from 'react'
 import styles from './SearchBar.module.css'
 
-const SearchBar = ({tasks, onSpinnerChange}) => {
+const SearchBar = ({onSpinnerChange}) => {
 
     return(
         <div className={styles.parent}>
-            <label className={styles.label} htmlFor="idselector">Search by Task ID</label>
+            <label className={styles.label} htmlFor="idselector">Task ID ►</label>
             <input
              className={styles.spinner} 
              id="idselector" 

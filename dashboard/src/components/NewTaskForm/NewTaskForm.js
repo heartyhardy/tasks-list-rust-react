@@ -5,10 +5,10 @@ const Task = ({onTextChange, onPost}) => {
     return (
         <div className={styles.parent}>
             <div className={styles.taskname}><p>► Enter Task Name: </p></div>
-            <div>
+            <div className= {styles.inner_parent}>
                 <input
                 className={styles.textfield} 
-                id="tasknametxt" 
+                id="newtasknametxt" 
                 onChange={(e) => {onTextChange(e.target.value)}}
                 />
                 <input
