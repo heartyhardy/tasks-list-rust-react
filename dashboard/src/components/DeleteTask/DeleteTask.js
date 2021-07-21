@@ -1,10 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
+import ResultsViewHOC from '../HOCs/ResultsViewHOC'
+import TasksHOC from '../HOCs/TasksHOC'
+import SearchBar from '../SearchBar/SearchBar'
+
 
 const DeleteTask = (props) => {
+    const [srcID, setSrcID] = useState(0)
+
+    const onSpinnerChange = (value) => {
+        setSrcID(value)
+    }
+
     return(
-        <div>
-            <h3>Delete a Task</h3>
-        </div>
+        <TasksHOC>
+            <SearchBar onSpinnerChange={onSpinnerChange} />
+            <ResultsViewHOC srcID={srcID} showDel={true}>
+            </ResultsViewHOC>
+        </TasksHOC>
     )
 }
 
