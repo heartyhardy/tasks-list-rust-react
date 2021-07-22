@@ -1,0 +1,56 @@
+.parent{
+    background-color: midnightblue;
+    display: grid;
+    grid-template-columns: 1fr, 11fr;
+    grid-template-rows: 1fr;
+    height: 100%;
+}
+
+.sidebar{
+    grid-column: 1/1;
+    grid-row: 1/1;
+    background-color: midnightblue;
+    box-shadow: 2px 2px 10px 1px rgba(51, 24, 102, 0.726);
+    z-index: 0;
+    padding: 1rem;
+}
+
+.routes{
+    padding:1rem;
+    grid-column: 2/10;
+    grid-row: 1/1;
+    background-color: midnightblue;
+}
+
+ul{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+    list-style: none;
+}
+
+li{
+    background-color: rebeccapurple;
+    box-shadow: 2px 2px 5px 1px rgba(35, 5, 75, 0.699);
+    border-radius: .5rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+.link{
+    color: snow;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+li:hover{
+    background-color: blueviolet;
+    box-shadow: 2px 2px 10px 1px rgba(64, 12, 161, 0.774);
+}
+
+.link:hover{
+    color:lightyellow;
+}

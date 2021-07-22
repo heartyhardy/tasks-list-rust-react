@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react'
+import { useHistory } from "react-router-dom";
 import axios from 'axios'
 import styles from './EditTaskForm.module.css'
 
 
 const EditTaskForm = ({ srcID, taskStatus }) => {
+
+    const history = useHistory()    
 
     const [checkedChanged, setCheckedChanged] = useState(false)
     const [textChanged, setTextChanged] = useState(false)
@@ -93,6 +96,10 @@ const EditTaskForm = ({ srcID, taskStatus }) => {
 
             //TODO Error Handling (data must return true from endpoint)
             setPatchDisabled(false)
+
+            setTimeout(()=>{
+                history.push("/")
+            }, 250)
         }
 
         patchTask()        
@@ -101,16 +108,18 @@ const EditTaskForm = ({ srcID, taskStatus }) => {
     return (
         <div className={styles.parent}>
             <div className={styles.inner_parent}>
-                <div className={styles.taskname}><p>► Task Name: </p></div>
+                <div className={styles.taskname}><p>Task Name</p></div>
 
                 <input
                     className={styles.textfield}
                     id="edittasknametxt"
+                    autoComplete={false}
+                    autoCorrect={false}
                     value={!textChanged && apiResponse.response ? apiResponse.response.name: newTaskName}
                     onChange={(e) => { onTextChange(e.target.value) }}
                 />
 
-                <div className={styles.taskname}><p>► Completed? </p></div>
+                <div className={styles.taskname}><p>Completed?</p></div>
 
                 <input
                     className={styles.checkbox}

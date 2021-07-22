@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useHistory } from "react-router-dom";
 import axios from 'axios'
 import TasksHOC from '../HOCs/TasksHOC'
 import NewTaskForm from '../NewTaskForm/NewTaskForm'
@@ -8,6 +9,7 @@ const PostTask = (props) => {
 
     const tasks_api = `http://127.0.0.1:8080/tasks`
 
+    const history = useHistory();
     const [newTaskName, setTaskName] = useState("")
     
     const onTextChange = (value) => {
@@ -36,6 +38,9 @@ const PostTask = (props) => {
             let response = await axios.post(tasks_api, contents)
             let data = await response.data
             
+            setTimeout(()=>{
+                history.push("/")
+            }, 250)
             // Require Error Handling (Check data)
         }
         postData()
