@@ -7,8 +7,8 @@
     background-color: darkslateblue;
     box-shadow: 2px 2px 5px 1px rgba(32, 45, 104, 0.322);
     border-radius: .5rem;
-    padding: 15px;
-    margin:  2rem;
+    padding: 5px;
+    margin: 5px;
 }
 
 .inner_parent{
@@ -20,8 +20,9 @@
     background-color: darkslateblue;
     box-shadow: 2px 2px 5px 1px rgba(32, 45, 104, 0.322);
     border-radius: .5rem;
-    padding: 1rem;
-    margin:  2rem;
+    margin: 2rem 0 2rem 0;
+    padding-bottom: 2rem;
+    width: 70%;
 }
 
 .textfield{
@@ -35,7 +36,7 @@
     padding: 0.5rem;
     margin-bottom: 1rem;
     max-height: 1.75rem;
-    width: 50vw;
+    width: 70%;
 }
 
 .button{

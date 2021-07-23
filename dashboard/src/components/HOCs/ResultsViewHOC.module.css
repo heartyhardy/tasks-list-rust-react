@@ -1,9 +1,8 @@
 .parent{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    grid-auto-rows: minmax(100px, auto);
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
     
-    padding: 2rem;
+    padding: 1rem;
     background: linear-gradient(0deg, rgba(206,228,255,1) 0%, rgba(202,190,255,1) 40%, rgba(217,201,255,1) 100%);
 }

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useHistory } from "react-router-dom";
 import axios from 'axios'
 import styles from './ResultsViewHOC.module.css'
 import Task from '../Task/Task'
@@ -6,6 +7,7 @@ import NotFoundCard from '../NotFoundCard/NotFoundCard'
 
 const ResultsViewHOC = (contents) => {
     
+    const history = useHistory();
 
     const [apiResponse, setApiResponse] = useState({
         isLoading: true,
@@ -43,6 +45,9 @@ const ResultsViewHOC = (contents) => {
             const response = await axios.delete(tasks_api)
             const data = await response.data
             
+            setTimeout(() => {
+                history.push("/")
+            },250)
             // Handle errors using data
             // Navigate off from here
         }
